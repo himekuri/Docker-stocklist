@@ -2,28 +2,22 @@
 
 @section('content')
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">商品一覧</a></li>
-            <li class="breadcrumb-item active" aria-current="page">検索結果</li>
-        </ol>
-    </nav>
     {!! Form::open(['method'=>'get','route'=>['items.serch']]) !!}
         <div class="input-group mb-3 col-md-10 ">
             {!! Form::text('name', null, ['class' => 'form-control', 'placeholder'=>'商品を検索']) !!}
-            <div class="input-group-append">                    
-                {!! Form::submit('検索',['class'=>'btn btn-primary']) !!}            
+            <div class="input-group-append">
+                {!! Form::submit('検索',['class'=>'btn btn-primary']) !!}
             </div>
         </div>
     {!! Form::close() !!}
-    
+
     @if (count($items)>0)
         <table class="table">
-            <tbody>                
+            <tbody>
                 @foreach($items as $item)
-                    <tr> 
+                    <tr>
                         <td><img src="{{ $item->image_url }}" alt="画像"></td>
-                        {{-- 買い出し先名を押すと編集ページへ飛ぶ --}}                        
+                        {{-- 買い出し先名を押すと編集ページへ飛ぶ --}}
                         <td class="align-middle text-left">
                             {!! link_to_route('items.edit', $item->name, ['item' => $item->id]) !!}
                         </td>
@@ -56,10 +50,10 @@
                         </td>
                     </tr>
                 @endforeach
-            </tbody>        
+            </tbody>
         </table>
     @else
-        <div class="text-center">                
+        <div class="text-center">
             <p>検索結果はありません</p>
         </div>
     @endif

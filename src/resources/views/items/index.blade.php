@@ -1,18 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    
-    <nav aria-label="breadcrumb" class="col-9 d-inline-block">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item active" aria-current="page">商品一覧</li>
-        </ol>
-    </nav>
+
     <div class="mb-3 text-right d-inline-block">
         <a href="/lists/only_buy" class="btn btn-primary"><i class="far fa-list-alt"></i></a>
         <a href="/items/create" class="btn btn-primary"><i class="fas fa-plus"></i></a>
     </div>
-    
-    
+
+
     @if (count($items)>0)
         {{-- 検索ボックスを表示する --}}
         {!! Form::open(['method'=>'get','route'=>['items.serch']]) !!}
@@ -29,7 +24,7 @@
                 <table class="table">
                     <tbody>
                         @foreach($category->items as $item)
-                            <tr> 
+                            <tr>
                                 <td><img src="{{ $item->image_url }}" alt="画像"></td>
                                 {{-- 買い出し先名を押すと編集ページへ飛ぶ --}}
                                 <td class="align-middle text-left">
@@ -64,19 +59,19 @@
                                 </td>
                             </tr>
                         @endforeach
-                    </tbody>        
+                    </tbody>
                 </table>
         @endforeach
     @else
         <div class="center jumbotron">
-            <div class="text-center">                
+            <div class="text-center">
                 <h3>さっそく商品を登録してみましょう！</h3>
                 <p>(例) トマト、割り箸</p>
                 <p class="text-danger">＜カテゴリー、買い出し先から先に登録してください＞</p>
-                {{-- 買い出し先登録ページへのリンク --}}                    
+                {{-- 買い出し先登録ページへのリンク --}}
                 {!! link_to_route('items.create', '商品を新規作成', [], ['class' => 'btn btn-lg btn-primary']) !!}
             </div>
         </div>
     @endif
-    
+
 @endsection
