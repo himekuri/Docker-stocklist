@@ -13,18 +13,16 @@ class ShopsTableSeeder extends Seeder
      */
     public function run()
     {
-        //全ユーザーに対してサンプルデータを作成
-        $users = DB::table('users')->get();
-        foreach( $users as $user){
-            DB::table('shops')->insert([
-            'name' => 'スーパー',
-            'number' => '1',
-            'user_id' => $user->id,
-            'gmap_url' => 'https://goo.gl/maps/6zQzbFrZh3CvoE5Z7',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-            ]);
-        }
+        //サンプルデータを作成
+        $user = DB::table('users')->first();
+        DB::table('shops')->insert([
+        'name' => 'スーパー',
+        'number' => '1',
+        'user_id' => $user->id,
+        'gmap_url' => 'https://goo.gl/maps/6zQzbFrZh3CvoE5Z7',
+        'created_at' => Carbon::now(),
+        'updated_at' => Carbon::now(),
+        ]);
 
     }
 }

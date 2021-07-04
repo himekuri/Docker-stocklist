@@ -13,20 +13,17 @@ class ItemsTableSeeder extends Seeder
      */
     public function run()
     {
-        $users = DB::table('users')->get();
+        $user = DB::table('users')->first();
         $shop = DB::table('shops')->first();
         $category = DB::table('categories')->first();
-        //全ユーザーに対してサンプルデータを作成
-        foreach( $users as $user){
-            DB::table('items')->insert([
-            'name' => 'トマト',
-            'user_id' => $user->id,
-            'image_url' => 'https://res.cloudinary.com/stocklist/image/upload/c_fit,h_100,w_100/v1625398996/tomato_red_tius7t.png',
-            'shop_id' => $shop->id,
-            'category_id' => $category->id,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-            ]);
-        }
+        DB::table('items')->insert([
+        'name' => 'トマト',
+        'user_id' => $user->id,
+        'image_url' => 'https://res.cloudinary.com/stocklist/image/upload/c_fit,h_100,w_100/v1625398996/tomato_red_tius7t.png',
+        'shop_id' => $shop->id,
+        'category_id' => $category->id,
+        'created_at' => Carbon::now(),
+        'updated_at' => Carbon::now(),
+        ]);
     }
 }
