@@ -1,12 +1,12 @@
 <header class="mb-4 sticky-top">
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark">
         {{-- トップページへのリンク --}}
         <a class="navbar-brand" href="/">Stocklist</a>
 
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <!-- メニュー項目 -->
         <div class="collapse navbar-collapse" id="nav-bar">
             @if (Auth::check())
