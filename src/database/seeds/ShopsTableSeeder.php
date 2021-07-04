@@ -13,6 +13,10 @@ class ShopsTableSeeder extends Seeder
      */
     public function run()
     {
+
+        // データのクリア
+        DB::table('shops')->delete();
+
         //サンプルデータを作成
         $user = DB::table('users')->first();
         DB::table('shops')->insert([

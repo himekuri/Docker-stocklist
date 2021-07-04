@@ -14,6 +14,9 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
+        // データのクリア
+        DB::table('categories')->delete();
+
         //サンプルデータを作成
         $user = DB::table('users')->first();
         DB::table('categories')->insert([

@@ -13,6 +13,9 @@ class ItemsTableSeeder extends Seeder
      */
     public function run()
     {
+        // データのクリア
+        DB::table('items')->delete();
+
         $user = DB::table('users')->first();
         $shop = DB::table('shops')->first();
         $category = DB::table('categories')->first();
