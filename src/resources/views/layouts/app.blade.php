@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>Stocklist</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     </head>
 
@@ -21,7 +21,7 @@
         </div>
 
         <!-- フッター -->
-        <footer class="text-center  border-top">
+        <footer class="text-center  border-top mt-5">
             &copy; 2021 Yamada Mahiro
         </footer>
 

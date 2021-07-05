@@ -23,19 +23,19 @@ class ItemsController extends Controller
         $categories = $user->categories()->orderBy('number', 'asc')->get();
         // 商品一覧を取得
         $items = $user->items()->orderBy('created_at', 'asc')->get();
-        
+
         // 商品一覧ビューでそれを表示
         return view('items.index', [
             'items' => $items,
             'categories' => $categories,
         ]);
-        
+
     }
-    
+
     public function create()
     {
         $item = new Item;
-        
+
         // 認証済みユーザを取得
         $user = \Auth::user();
         // カテゴリー一覧を取得
@@ -50,7 +50,7 @@ class ItemsController extends Controller
             'shops' => $shops,
         ]);
     }
-    
+
     public function store(Request $request)
     {
         // バリデーション
@@ -62,20 +62,20 @@ class ItemsController extends Controller
             'category_id' =>'required',
             'shop_id' =>'required',
         ]);
-       
-       
+
+
         if ($image = $request->file('image_url')) {
             $image_path = $image->getRealPath();
             Cloudder::upload($image_path, null);
             //直前にアップロードされた画像のpublicIdを取得する。
             $publicId = Cloudder::getPublicId();
             $request->image_url = Cloudder::secureShow($publicId, [
-                'width'     => 100,
-                'height'    => 100
+                'width'     => 50,
+                'height'    => 50
             ]);
             $request->image_id = $publicId;
         }
-        
+
         // 認証済みユーザ（閲覧者）の商品として作成（リクエストされた値をもとに作成）
         $request->user()->items()->create([
             'name' => $request->name,
@@ -88,7 +88,7 @@ class ItemsController extends Controller
         // 商品一覧へリダイレクトさせる
         return redirect()->route('items.index');
     }
-    
+
     public function edit($id)
     {
         // idの値で商品を検索して取得
@@ -97,21 +97,21 @@ class ItemsController extends Controller
         if (\Auth::id() !== $item->user_id) {
             return redirect('/');
         }
-        
+
         // 認証済みユーザを取得
         $user = \Auth::user();
         // カテゴリー一覧を取得
         $categories = $user->categories()->orderBy('number', 'asc')->get();
         // 買い出し先一覧を取得
         $shops = $user->shops()->orderBy('number', 'asc')->get();
-        
+
         return view('items.edit', [
             'item' => $item,
             'categories' => $categories,
             'shops' => $shops,
         ]);
     }
-    
+
     public function update(Request $request, $id)
     {
         // バリデーション
@@ -123,14 +123,14 @@ class ItemsController extends Controller
             'category_id' =>'required',
             'shop_id' =>'required',
         ]);
-        
+
         // idの値で商品を検索して取得
         $item = Item::findOrFail($id);
-        
+
         if (\Auth::id() !== $item->user_id) {
             return redirect('/');
         }
-        
+
         if ($image = $request->file('image_url')) {
             $image_path = $image->getRealPath();
             Cloudder::upload($image_path, null);
@@ -142,57 +142,57 @@ class ItemsController extends Controller
             ]);
             $request->image_id = $publicId;
         }
-        
+
         $item->name  = $request->name;
         $item->image_url = $request->image_url;
         $item->image_id = $request->image_id;
         $item->category_id = $request->category_id;
         $item->shop_id = $request->shop_id;
         $item->save();
-        
+
         // 商品一覧へリダイレクトさせる
         return redirect()->route('items.index');
     }
-    
+
     public function destroy($id)
     {
         // idの値で商品を検索して取得
         $item = Item::findOrFail($id);
-        
+
         if (\Auth::id() !== $item->user_id) {
             return redirect('/');
         }
-        
+
         if(isset($item->image_id)){
             Cloudder::destroyImage($item->image_id);
         }
-        
+
         $item->delete();
-        
+
         // 商品一覧へリダイレクトさせる
         return redirect()->route('items.index');
     }
-    
-    public function serch(Request $request) 
+
+    public function serch(Request $request)
     {
         $keyword_name = $request->name;
-        
+
         // 認証済みユーザを取得
         $user = \Auth::user();
         // カテゴリー一覧を取得
         $categories = $user->categories()->orderBy('number', 'asc')->get();
-      
-            
+
+
         // 認証済みユーザを取得
         $user = \Auth::user();
         //キーワードから部分一致するアイテムを取得
         $items = $user->items()->where('name','like', '%' .$keyword_name. '%')->orderBy('created_at', 'asc')->get();
-        
+
         //検索結果一覧ビューを表示
-        return view('items.serch', [
+        return view('items.search', [
             'items' => $items,
             'categories' => $categories,
         ]);
-        
+
     }
 }

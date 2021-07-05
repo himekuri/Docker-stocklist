@@ -3,11 +3,9 @@
 @section('content')
 
     {!! Form::open(['method'=>'get','route'=>['items.serch']]) !!}
-        <div class="input-group mb-3 col-md-10 ">
-            {!! Form::text('name', null, ['class' => 'form-control', 'placeholder'=>'商品を検索']) !!}
-            <div class="input-group-append">
-                {!! Form::submit('検索',['class'=>'btn btn-primary']) !!}
-            </div>
+        <div class="search-form">
+            {!! Form::text('name', null, ['class' => 'search-box', 'placeholder'=>'商品を検索..']) !!}
+            {!! Form::button('<i class="fas fa-search"></i>', ['class' => 'search-btn', 'type' => 'submit']) !!}
         </div>
     {!! Form::close() !!}
 

@@ -2,11 +2,16 @@
 
 @section('content')
 
-    <div class="mb-3 text-right d-inline-block">
-        <a href="/shops/create" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+    <div class="page-title">
+        <h2>買い出し先一覧</h2>
     </div>
+
     {{-- 買い出し先一覧を表示する --}}
     @if (count($shops)>0)
+        {{-- 買い出し先追加ボタン --}}
+        <div class="text-center">
+            <a href="/shops/create" class="mb-3 orange-btn">買い出し先追加</a>
+        </div>
         <table class="table">
             <tbody>
                 @foreach ($shops as $shop)
@@ -18,12 +23,6 @@
                         @else
                             <td class="small align-bottom">{!! link_to_route('gmap', 'GoogleMapを表示', ['id' => $shop->id]) !!}</td>
                         @endif
-
-                        <td>
-                            {!! Form::model($shop, ['route' => ['shops.destroy', $shop->id], 'method' => 'delete']) !!}
-                                {!! Form::button('<i class="fas fa-trash-alt"></i>', ['class' => "btn", 'type' => 'submit']) !!}
-                            {!! Form::close() !!}
-                        </td>
                     </tr>
                 @endforeach
             </tbody>
@@ -34,7 +33,7 @@
                 <h3>さっそく買い出し先を登録してみましょう！</h3>
                 <p>(例) スーパーA、薬局</p>
                 {{-- 買い出し先登録ページへのリンク --}}
-                {!! link_to_route('shops.create', '買い出し先を新規作成', [], ['class' => 'btn btn-lg btn-primary']) !!}
+                {!! link_to_route('shops.create', '買い出し先を新規作成', [], ['class' => 'orange-btn btn-lg']) !!}
             </div>
         </div>
     @endif

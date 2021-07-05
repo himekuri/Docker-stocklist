@@ -2,12 +2,12 @@
 
 @section('content')
 
-    <div class="col-md-6 text-center">
-        <h3>買い出し先登録</h3>
+    <div class="page-title">
+        <h2>買い出し先登録</h2>
     </div>
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-sm-6 offset-sm-3">
             {!! Form::model($shop, ['route' => 'shops.store']) !!}
 
                 <div class="form-group">
@@ -25,7 +25,7 @@
                     {!! Form::text('gmap_url', null, ['class' => 'form-control']) !!}
                 </div>
 
-                {!! Form::submit('登録', ['class' => 'btn btn-primary btn-block mt-5']) !!}
+                {!! Form::submit('登録', ['class' => 'orange-btn btn-block']) !!}
 
             {!! Form::close() !!}
         </div>

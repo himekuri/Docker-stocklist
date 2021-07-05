@@ -2,17 +2,12 @@
 
 @section('content')
 
-    <div class="col-md-6 ">
-        <div class="text-center"><h3>商品編集</h3></div>
-        <div class="text-right">
-            {!! Form::model($item, ['route' => ['items.destroy', $item->id], 'method' => 'delete']) !!}
-                {!! Form::button('<i class="fas fa-trash-alt"></i>', ['class' => "btn", 'type' => 'submit']) !!}
-            {!! Form::close() !!}
-        </div>
+    <div class="page-title">
+        <h2>商品編集</h2>
     </div>
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-sm-6 offset-sm-3">
             {!! Form::model($item, ['route' => ['items.update',$item->id],'method' => 'put','files' => true]) !!}
 
                 <div class="form-group">
@@ -50,9 +45,16 @@
                 @endif
 
 
-                {!! Form::submit('編集', ['class' => 'btn btn-primary btn-block mt-5']) !!}
+                {!! Form::submit('編集', ['class' => 'orange-btn btn-block']) !!}
 
             {!! Form::close() !!}
+
+            {{-- 削除ボタン --}}
+            <div class="text-center">
+                {!! Form::model($item, ['route' => ['items.destroy', $item->id], 'method' => 'delete']) !!}
+                    {!! Form::button('削除する', ['class' => "delete-btn", 'type' => 'submit']) !!}
+                {!! Form::close() !!}
+            </div>
         </div>
     </div>
 @endsection

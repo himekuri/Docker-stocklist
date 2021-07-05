@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="text-center">
-        <h1>新規登録</h1>
+    <div class="page-title">
+        <h2>アカウント登録</h2>
     </div>
 
     <div class="row">
@@ -29,7 +29,7 @@
                     {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
                 </div>
 
-                {!! Form::submit('登録', ['class' => 'btn btn-primary btn-block']) !!}
+                {!! Form::submit('登録', ['class' => 'orange-btn btn-block']) !!}
             {!! Form::close() !!}
         </div>
     </div>

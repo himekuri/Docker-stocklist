@@ -1,29 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="page-title">
+    <h2>カテゴリー登録</h2>
+</div>
+<div class="row">
+    <div class="col-sm-6 offset-sm-3">
+        {!! Form::model($category, ['route' => 'categories.store']) !!}
 
-    <div class="col-md-6 text-center">
-        <h3>カテゴリー登録</h3>
+            <div class="form-group">
+                {!! Form::label('name', '名前') !!}
+                {!! Form::text('name', null, ['class' => 'form-control']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('number', '並び順',['class' => 'd-block']) !!}
+                {!! Form::select('number',App\Category::numbers(),['class' => 'form-control'] ) !!}
+
+            </div>
+
+            {!! Form::submit('登録', ['class' => 'orange-btn btn-block']) !!}
+
+        {!! Form::close() !!}
     </div>
-
-    <div class="row">
-        <div class="col-md-6">
-            {!! Form::model($category, ['route' => 'categories.store']) !!}
-
-                <div class="form-group">
-                    {!! Form::label('name', '名前') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! Form::label('number', '並び順',['class' => 'd-block']) !!}
-                    {!! Form::select('number',App\Category::numbers(),['class' => 'form-control'] ) !!}
-
-                </div>
-
-                {!! Form::submit('登録', ['class' => 'btn btn-primary btn-block mt-5']) !!}
-
-            {!! Form::close() !!}
-        </div>
-    </div>
+</div>
 @endsection
