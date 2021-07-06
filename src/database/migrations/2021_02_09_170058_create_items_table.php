@@ -23,9 +23,8 @@ class CreateItemsTable extends Migration
             $table->unsignedBigInteger('shop_id');
             $table->unsignedTinyInteger('status')->default(0);
             $table->dateTime('status_updated_at')->nullable();
-            $table->boolean('checked_item')->default(0);
             $table->timestamps();
-            
+
             // 外部キー制約
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
