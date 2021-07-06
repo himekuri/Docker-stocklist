@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="page-title">
-        <h2>商品登録</h2>
+        <h2>アイテム登録</h2>
     </div>
 
     <div class="row">
