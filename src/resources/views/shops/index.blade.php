@@ -17,7 +17,7 @@
                 @foreach ($shops as $shop)
                     <tr>
                         {{-- 買い出し先名を押すと編集ページへ飛ぶ --}}
-                        <td class="align-middle">{!! link_to_route('shops.edit', $shop->name, ['shop' => $shop->id]) !!}</td>
+                        <td class="align-middle edit-link">{!! link_to_route('shops.edit', $shop->name, ['shop' => $shop->id]) !!}</td>
                         @if(empty($shop->gmap_url))
                             <td class="small align-bottom">GoogleMapは未登録です</td>
                         @else

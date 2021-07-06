@@ -140,3 +140,11 @@ header{
 .line-it-button{
 	margin: 0 auto;
 }
+
+.edit-link a{
+	color: #212529;
+}
+
+.edit-link a:hover{
+	color: #212529;
+}

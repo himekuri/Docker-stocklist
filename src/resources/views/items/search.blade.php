@@ -21,7 +21,7 @@
                             <td class="col-1"><img src="{{ $item->image_url }}" alt="画像" width="50" height="50"></td>
                             {{-- 買い出し先名を押すと編集ページへ飛ぶ --}}
                             <td class="align-middle">
-                                <div class="col-md-8  d-inline-block">{!! link_to_route('items.edit', $item->name, ['item' => $item->id]) !!}</div>
+                                <div class="col-md-8  d-inline-block edit-link">{!! link_to_route('items.edit', $item->name, ['item' => $item->id]) !!}</div>
                             {{-- ステータスに応じたステータスボタンの表示 --}}
                             @if($item->status == 2)
                                 <div class="text-danger col-md-3  d-inline-block">買い出し</div>

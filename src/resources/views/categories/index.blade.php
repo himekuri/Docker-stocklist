@@ -15,7 +15,7 @@
                 @foreach ($categories as $category)
                     <tr>
                         {{-- カテゴリー名を押すと編集ページへ飛ぶ --}}
-                        <td class="align-middle">{!! link_to_route('categories.edit', $category->name, ['category' => $category->id]) !!}</td>
+                        <td class="align-middle edit-link">{!! link_to_route('categories.edit', $category->name, ['category' => $category->id]) !!}</td>
                     </tr>
                 @endforeach
             </tbody>
