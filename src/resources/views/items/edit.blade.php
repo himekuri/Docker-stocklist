@@ -45,7 +45,7 @@
                 @endif
 
 
-                {!! Form::submit('編集', ['class' => 'orange-btn btn-block']) !!}
+                {!! Form::submit('更新', ['class' => 'orange-btn btn-block']) !!}
 
             {!! Form::close() !!}
 

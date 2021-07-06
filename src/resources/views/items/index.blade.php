@@ -15,7 +15,7 @@
             </div>
 
             {{-- 検索フォーム --}}
-            {!! Form::open(['method'=>'get','route'=>['items.serch']]) !!}
+            {!! Form::open(['method'=>'get','route'=>['items.search']]) !!}
                 <div class="search-form">
                     {!! Form::text('name', null, ['class' => 'search-box', 'placeholder'=>'商品を検索..']) !!}
                     {!! Form::button('<i class="fas fa-search"></i>', ['class' => 'search-btn', 'type' => 'submit']) !!}
@@ -35,39 +35,36 @@
                     <tbody>
                         @foreach($category->items as $item)
                             <tr>
-                                <td class="col-1"><img src="{{ $item->image_url }}" alt="画像"></td>
+                                <td class="col-1"><img src="{{ $item->image_url }}" alt="画像" width="50" height="50"></td>
                                 {{-- 買い出し先名を押すと編集ページへ飛ぶ --}}
-                                <td class="col-2 align-middle text-left">
-                                    {!! link_to_route('items.edit', $item->name, ['item' => $item->id]) !!}
+                                <td class="align-middle">
+                                    <div class="col-md-8  d-inline-block">{!! link_to_route('items.edit', $item->name, ['item' => $item->id]) !!}</div>
+                                {{-- ステータスに応じたステータスボタンの表示 --}}
+                                @if($item->status == 2)
+                                    <div class="text-danger col-md-3  d-inline-block">買い出し</div>
                                 </td>
-                                <td class="w-25 align-middle">
-                                    {{-- ステータスに応じたステータスボタンの表示 --}}
-                                    @if($item->status == 2)
-                                        <button type="button" class="btn btn-danger btn-sm mb-1">買い出し</button>
-                                        {!! Form::open(['method'=>'put','route'=>['items.status.update',$item->id,'caution']]) !!}
-                                            {!! Form::submit('要注意',['name' => 'few','class'=>'btn btn-outline-warning btn-sm mb-1']) !!}
-                                        {!! Form::close() !!}
-                                        {!! Form::open(['method'=>'put','route'=>['items.status.update',$item->id,'ok']]) !!}
-                                            {!! Form::submit('在庫あり',['name' => 'many','class'=>'btn btn-outline-success btn-sm mb-1']) !!}
-                                        {!! Form::close() !!}
-                                    @elseif($item->status == 1)
-                                        {!! Form::open(['method'=>'put','route'=>['items.status.update',$item->id,'buy']]) !!}
-                                            {!! Form::submit('買い出し',['name' => 'none','class'=>'btn btn-outline-danger btn-sm mb-1']) !!}
-                                        {!! Form::close() !!}
-                                        <button type="button" class="btn btn-warning btn-sm mb-1">要注意</button>
-                                        {!! Form::open(['method'=>'put','route'=>['items.status.update',$item->id,'ok']]) !!}
-                                            {!! Form::submit('在庫あり',['name' => 'many','class'=>'btn btn-outline-success btn-sm mb-1']) !!}
-                                        {!! Form::close() !!}
-                                    @else
-                                        {!! Form::open(['method'=>'put','route'=>['items.status.update',$item->id,'buy']]) !!}
-                                            {!! Form::submit('買い出し',['name' => 'none','class'=>'btn btn-outline-danger btn-sm mb-1']) !!}
-                                        {!! Form::close() !!}
-                                        {!! Form::open(['method'=>'put','route'=>['items.status.update',$item->id,'caution']]) !!}
-                                            {!! Form::submit('要注意',['name' => 'few','class'=>'btn btn-outline-warning btn-sm mb-1']) !!}
-                                        {!! Form::close() !!}
-                                        <button type="button" class="btn btn-success btn-sm mb-1">在庫あり</button>
-                                    @endif
+                                <td class="col-3 align-middle">
+                                    {!! Form::open(['method'=>'put','route'=>['items.status.update',$item->id,'ok']]) !!}
+                                        {!! Form::submit('切り替え',['name' => 'many','class'=>'orange-btn btn-sm mb-1']) !!}
+                                    {!! Form::close() !!}
                                 </td>
+                                @elseif($item->status == 1)
+                                    <div class="text-warning col-md-3 d-inline-block">要注意</div>
+                                </td>
+                                <td class="col-3 align-middle">
+                                    {!! Form::open(['method'=>'put','route'=>['items.status.update',$item->id,'buy']]) !!}
+                                        {!! Form::submit('切り替え',['name' => 'none','class'=>'orange-btn btn-sm mb-1']) !!}
+                                    {!! Form::close() !!}
+                                </td>
+                                @else
+                                    <div class="text-success col-md-3 d-inline-block">在庫あり</div>
+                                </td>
+                                <td class="col-3 align-middle">
+                                    {!! Form::open(['method'=>'put','route'=>['items.status.update',$item->id,'caution']]) !!}
+                                        {!! Form::submit('切り替え',['name' => 'few','class'=>'orange-btn btn-sm mb-1']) !!}
+                                    {!! Form::close() !!}
+                                </td>
+                                @endif
                             </tr>
                         @endforeach
                     </tbody>

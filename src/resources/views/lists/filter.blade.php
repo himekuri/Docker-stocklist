@@ -29,13 +29,13 @@
                         <tbody>
                             @foreach($shop->items->whereIn('status',[2]) as $item)
                                 <tr>
-                                    <td class="align-middle">{{$item->name}}</td>
-                                    {{-- 買い出しのマークを表示する --}}
+                                    <td class="col-1"><img src="{{ $item->image_url }}" alt="画像" width="50" height="50"></td>
                                     <td class="align-middle">
-                                        <div class="text-danger">買い出し</div>
+                                        <div class="col-md-8  d-inline-block">{{$item->name}}</div>
+                                        <div class="text-danger col-md-3  d-inline-block">買い出し</div>
                                     </td>
-                                    <td>
-                                        <div class="form-check ">
+                                    <td class="align-middle">
+                                        <div class="form-check col-3">
                                             <input class="form-check-input position-static" type="checkbox" name="cheked_item[]" value= {{$item->id}} >
                                         </div>
                                     </td>

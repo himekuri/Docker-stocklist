@@ -35,7 +35,7 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
 //検索結果を表示する
-Route::get('items/serch','ItemsController@serch')->name('items.serch');
+Route::get('items/search','ItemsController@search')->name('items.search');
 
 //買い出しリストの絞り込み機能
 Route::get('lists/filter','ListsController@filter')->name('lists.filter');

@@ -29,19 +29,19 @@
                         <tbody>
                             @foreach($shop->items->whereIn('status',[1,2]) as $item)
                                 <tr>
-                                    <td class="align-middle">{{$item->name}}</td>
-                                    {{-- 買い出し・要注意のマークを表示する --}}
+                                    <td class="col-1"><img src="{{ $item->image_url }}" alt="画像" width="50" height="50"></td>
+                                    <td class="align-middle">
+                                        <div class="col-md-8  d-inline-block">{{$item->name}}</div>
+                                    {{-- ステータスに応じて買い出し・要注意を表示する --}}
                                     @if($item->status == 2)
-                                        <td class="align-middle">
-                                            <div class="text-danger">買い出し</div>
-                                        </td>
+                                        <div class="text-danger col-md-3  d-inline-block">買い出し</div>
+                                    </td>
                                     @else
-                                        <td class="align-middle">
-                                            <div class="text-warning">要注意</div>
-                                        </td>
+                                        <div class="text-warning col-md-3 d-inline-block">要注意</div>
+                                    </td>
                                     @endif
-                                    <td>
-                                        <div class="form-check ">
+                                    <td class="align-middle">
+                                        <div class="form-check col-3">
                                             <input class="form-check-input position-static" type="checkbox" name="cheked_item[]" value= {{$item->id}} >
                                         </div>
                                     </td>

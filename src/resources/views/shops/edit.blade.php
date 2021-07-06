@@ -25,7 +25,7 @@
                     {!! Form::text('gmap_url', null, ['class' => 'form-control']) !!}
                 </div>
 
-                {!! Form::submit('編集', ['class' => 'orange-btn btn-block']) !!}
+                {!! Form::submit('更新', ['class' => 'orange-btn btn-block']) !!}
 
             {!! Form::close() !!}
 

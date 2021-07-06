@@ -63,7 +63,6 @@ class ItemsController extends Controller
             'shop_id' =>'required',
         ]);
 
-
         if ($image = $request->file('image_url')) {
             $image_path = $image->getRealPath();
             Cloudder::upload($image_path, null);
@@ -74,6 +73,8 @@ class ItemsController extends Controller
                 'height'    => 50
             ]);
             $request->image_id = $publicId;
+        }else{
+            $request->image_url = asset('img/sample.png');
         }
 
         // 認証済みユーザ（閲覧者）の商品として作成（リクエストされた値をもとに作成）
@@ -130,7 +131,14 @@ class ItemsController extends Controller
         if (\Auth::id() !== $item->user_id) {
             return redirect('/');
         }
+        //前の画像をcloudinaryから消去する
+        if(isset($item->image_id)){
+            Cloudder::destroyImage($item->image_id);
+        }
+        //画像に初期値を設定
+        $publicId = 'sample_nteekx';
 
+        //新たに画像をcloudinaryにアップロードする
         if ($image = $request->file('image_url')) {
             $image_path = $image->getRealPath();
             Cloudder::upload($image_path, null);
@@ -141,6 +149,8 @@ class ItemsController extends Controller
                 'height'    => 100
             ]);
             $request->image_id = $publicId;
+        }else{
+            $request->image_url = asset('img/sample.png');
         }
 
         $item->name  = $request->name;
@@ -173,7 +183,7 @@ class ItemsController extends Controller
         return redirect()->route('items.index');
     }
 
-    public function serch(Request $request)
+    public function search(Request $request)
     {
         $keyword_name = $request->name;
 
@@ -192,6 +202,7 @@ class ItemsController extends Controller
         return view('items.search', [
             'items' => $items,
             'categories' => $categories,
+            'keyword_name' => $keyword_name,
         ]);
 
     }

@@ -45,7 +45,7 @@
                 @endif
 
 
-                {!! Form::submit('登録', ['class' => 'orange-btn btn-block']) !!}
+                {!! Form::submit('登録', ['class' => 'orange-btn btn-block mt-5']) !!}
 
             {!! Form::close() !!}
         </div>
