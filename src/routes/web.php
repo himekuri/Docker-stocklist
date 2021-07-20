@@ -44,5 +44,5 @@ Route::get('lists/filter','ListsController@filter')->name('lists.filter');
 Route::get('shops/{id}/gmap', 'ShopsController@gmap')->name('gmap');
 
 //在庫状況をチェックするルート
-Route::put('items/{id}/{status}', 'ItemStatusController@update')->name('items.status.update');
+Route::put('items/{id}/{status}', 'ItemStatusesController@update')->name('items.status.update');
 
