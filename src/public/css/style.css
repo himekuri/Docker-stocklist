@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+body{
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
 header{
 	background-color: #F29800;
 }
@@ -147,4 +153,8 @@ header{
 
 .edit-link a:hover{
 	color: #212529;
+}
+
+footer{
+	margin-top: auto;
 }

@@ -21,7 +21,7 @@
         </div>
 
         <!-- フッター -->
-        <footer class="text-center  border-top mt-5">
+        <footer class="text-center  border-top">
             &copy; 2021 Yamada Mahiro
         </footer>
 
