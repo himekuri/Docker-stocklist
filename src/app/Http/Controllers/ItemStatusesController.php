@@ -8,15 +8,16 @@ use App\Item;
 
 class ItemStatusesController extends Controller
 {
-    public function update($id, $status)
+    public function update(Request $request, $id)
     {
         // idの値でアイテムを検索して取得
         $item = Item::findOrFail($id);
+        $status = $request -> status;
 
         //「買い出し」「残りわずか」「在庫あり」でstatusを変える
-        if($status == 'buy') {
+        if($status == 'none') {
             $item->status = 2;
-        } else if($status == 'caution') {
+        } else if($status == 'few') {
             $item->status = 1;
         } else {
             $item->status = 0;
