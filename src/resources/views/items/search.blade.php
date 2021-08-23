@@ -32,7 +32,7 @@
                                 {!! Form::close() !!}
                             </td>
                             @elseif($item->status == 1)
-                                <div class="text-warning col-md-3 d-inline-block">要注意</div>
+                                <div class="text-warning col-md-3 d-inline-block">残りわずか</div>
                             </td>
                             <td class="col-3 align-middle">
                                 {!! Form::open(['method'=>'put','route'=>['items.status.update',$item->id,'buy']]) !!}

@@ -14,10 +14,10 @@
         {{-- 表示の絞り込み機能 --}}
         <div class = "text-center mb-3">
             {!! link_to_route('lists.filter', '買い出しのみ', [], ['class' => 'btn btn-danger mb-1']) !!}
-            <button type="button" class="btn btn-warning mb-1" disabled>要注意も含む</button>
+            <button type="button" class="btn btn-warning mb-1" disabled>残りわずかも含む</button>
         </div>
 
-        {{-- 買い出し・要注意があるとき買い出し先ごとに一覧で表示する --}}
+        {{-- 買い出し・残りわずかがあるとき買い出し先ごとに一覧で表示する --}}
         @if (count($items)>0)
             <form method="post" action="{{ route('lists.update') }}">
                 @csrf
@@ -32,12 +32,12 @@
                                     <td class="col-1"><img src="{{ $item->image_url }}" alt="画像" width="50" height="50"></td>
                                     <td class="align-middle">
                                         <div class="col-md-8  d-inline-block">{{$item->name}}</div>
-                                    {{-- ステータスに応じて買い出し・要注意を表示する --}}
+                                    {{-- ステータスに応じて買い出し・残りわずかを表示する --}}
                                     @if($item->status == 2)
                                         <div class="text-danger col-md-3  d-inline-block">買い出し</div>
                                     </td>
                                     @else
-                                        <div class="text-warning col-md-3 d-inline-block">要注意</div>
+                                        <div class="text-warning col-md-3 d-inline-block">残りわずか</div>
                                     </td>
                                     @endif
                                     <td class="align-middle">
@@ -54,7 +54,7 @@
                     <button type="submit" name="store" value="submit" class="orange-btn">チェックを反映する</button>
                 </div>
             </form>
-        {{-- 買い出し・要注意がないとき「買い出しはありません」と表示 --}}
+        {{-- 買い出し・残りわずかがないとき「買い出しはありません」と表示 --}}
         @else
             <div class="center jumbotron">
                 <div class="text-center">

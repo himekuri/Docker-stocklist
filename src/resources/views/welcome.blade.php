@@ -24,7 +24,7 @@
 				<section class="col-lg-4 mb-5">
 					<p><img class="img-fluid" src="img/check.png" width="500" height="500" alt="check-stock"></p>
 					<p class="feature-title">2. 在庫チェック</p>
-					<p>在庫の状況を「買い出し」「要注意」「在庫あり」の３つから選ぶことができます</p>
+					<p>在庫の状況を「買い出し」「残りわずか」「在庫あり」の３つから選ぶことができます</p>
 				</section>
 				<section class="col-lg-4 mb-5">
 					<p><img class="img-fluid" src="img/check-list.png" width="500" height="500" alt="check-list"></p>

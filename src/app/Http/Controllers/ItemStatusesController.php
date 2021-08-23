@@ -13,7 +13,7 @@ class ItemStatusesController extends Controller
         // idの値でアイテムを検索して取得
         $item = Item::findOrFail($id);
 
-        //「買い出し」「要注意」「在庫あり」でstatusを変える
+        //「買い出し」「残りわずか」「在庫あり」でstatusを変える
         if($status == 'buy') {
             $item->status = 2;
         } else if($status == 'caution') {
