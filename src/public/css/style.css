@@ -60,6 +60,37 @@ header{
     box-shadow: 0 0 0 0.2rem rgb(255 193 7 / 50%);
 }
 
+.orange-outline-btn{
+	display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid #F29800;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+	color: #F29800;
+	background-color: #fff;
+	margin-bottom: 1rem !important;
+}
+
+.orange-outline-btn:hover {
+    color: #fff;
+	background-color: #F29800;
+    border-color: #F29800;
+    text-decoration: none;
+}
+
+.orange-outline-btn:focus {
+    box-shadow: 0 0 0 0.2rem rgb(255 193 7 / 50%);
+}
+
 .search-form{
 	margin:0 auto 20px;
 	background-color: #e6e3cf;

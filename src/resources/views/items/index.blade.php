@@ -41,27 +41,27 @@
                                     <div class="col-md-8  d-inline-block edit-link">{!! link_to_route('items.edit', $item->name, ['item' => $item->id]) !!}</div>
                                 {{-- ステータスに応じたステータスボタンの表示 --}}
                                 @if($item->status == 2)
-                                    <div class="text-danger col-md-3  d-inline-block">買い出し</div>
+                                    <div class="text-danger col-md-3 text-right d-inline-block">買い出し</div>
                                 </td>
                                 <td class="col-3 align-middle">
                                     {!! Form::open(['method'=>'put','route'=>['items.status.update',$item->id,'ok']]) !!}
-                                        {!! Form::submit('切り替え',['name' => 'many','class'=>'orange-btn btn-sm mb-1']) !!}
+                                        {!! Form::submit('切り替え',['name' => 'many','class'=>'orange-outline-btn btn-sm mb-1']) !!}
                                     {!! Form::close() !!}
                                 </td>
                                 @elseif($item->status == 1)
-                                    <div class="text-warning col-md-3 d-inline-block">残りわずか</div>
+                                    <div class="text-warning col-md-3 text-right d-inline-block">残りわずか</div>
                                 </td>
                                 <td class="col-3 align-middle">
                                     {!! Form::open(['method'=>'put','route'=>['items.status.update',$item->id,'buy']]) !!}
-                                        {!! Form::submit('切り替え',['name' => 'none','class'=>'orange-btn btn-sm mb-1']) !!}
+                                        {!! Form::submit('切り替え',['name' => 'none','class'=>'orange-outline-btn btn-sm mb-1']) !!}
                                     {!! Form::close() !!}
                                 </td>
                                 @else
-                                    <div class="text-success col-md-3 d-inline-block">在庫あり</div>
+                                    <div class="text-success col-md-3 text-right d-inline-block">在庫あり</div>
                                 </td>
                                 <td class="col-3 align-middle">
                                     {!! Form::open(['method'=>'put','route'=>['items.status.update',$item->id,'caution']]) !!}
-                                        {!! Form::submit('切り替え',['name' => 'few','class'=>'orange-btn btn-sm mb-1']) !!}
+                                        {!! Form::submit('切り替え',['name' => 'few','class'=>'orange-outline-btn btn-sm mb-1']) !!}
                                     {!! Form::close() !!}
                                 </td>
                                 @endif
