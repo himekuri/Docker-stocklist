@@ -9,9 +9,9 @@ class Item extends Model
     protected $fillable = [
         'name', 'image_url','image_id', 'category_id', 'shop_id',
     ];
-    
+
     /**
-     * Userモデル,Categoryモデル,Shopモデルとの関係を定義(この商品のユーザ、カテゴリー、買い出し先)
+     * Userモデル,Categoryモデル,Shopモデルとの関係を定義(このアイテムのユーザ、カテゴリー、買い出し先)
      */
     public function user()
     {

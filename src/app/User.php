@@ -38,7 +38,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Categoryモデル,Shopモデル,Itemモデルとの関係を定義（このユーザが持つカテゴリー、買い出し先、商品）
+     * Categoryモデル,Shopモデル,Itemモデルとの関係を定義（このユーザが持つカテゴリー、買い出し先、アイテム）
      */
     public function categories()
     {

@@ -9,7 +9,7 @@
         @if (count($items)>0)
             {!! Form::open(['method'=>'get','route'=>['items.search']]) !!}
                 <div class="search-form">
-                    {!! Form::text('name', null, ['class' => 'search-box', 'placeholder'=>'商品を検索..']) !!}
+                    {!! Form::text('name', null, ['class' => 'search-box', 'placeholder'=>'アイテムを検索..']) !!}
                     {!! Form::button('<i class="fas fa-search"></i>', ['class' => 'search-btn', 'type' => 'submit']) !!}
                 </div>
             {!! Form::close() !!}

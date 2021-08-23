@@ -9,7 +9,7 @@ class Category extends Model
     protected $fillable = [
         'name', 'number',
     ];
-    
+
     /**
      * Userモデルとの関係を定義(このカテゴリーを持つユーザ)
      */
@@ -17,21 +17,21 @@ class Category extends Model
     {
         return $this->belongsTo(User::class);
     }
-    
+
     /**
-     * Itemモデルとの関係を定義（このカテゴリーに所属する商品）
+     * Itemモデルとの関係を定義（このカテゴリーに所属するアイテム）
      */
     public function items()
     {
         return $this->hasMany(Item::class);
     }
-    
+
     public static function numbers()
-    {   
+    {
         $numbers = array();
         for($i = 1; $i <= 20;$i++){
             $numbers += array( $i => $i."番目" );
         }
         return $numbers;
-    } 
+    }
 }

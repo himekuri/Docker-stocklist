@@ -10,7 +10,7 @@ class ItemStatusesController extends Controller
 {
     public function update($id, $status)
     {
-        // idの値で商品を検索して取得
+        // idの値でアイテムを検索して取得
         $item = Item::findOrFail($id);
 
         //「買い出し」「要注意」「在庫あり」でstatusを変える

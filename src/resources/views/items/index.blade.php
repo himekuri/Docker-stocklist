@@ -9,7 +9,7 @@
     <div class="main">
         {{-- アイテムの登録があるとき --}}
         @if (count($items)>0)
-            {{-- 商品追加ボタン --}}
+            {{-- アイテム追加ボタン --}}
             <div class="text-center">
                 <a href="/items/create" class="mb-3 orange-btn">アイテム追加</a>
             </div>
@@ -17,7 +17,7 @@
             {{-- 検索フォーム --}}
             {!! Form::open(['method'=>'get','route'=>['items.search']]) !!}
                 <div class="search-form">
-                    {!! Form::text('name', null, ['class' => 'search-box', 'placeholder'=>'商品を検索..']) !!}
+                    {!! Form::text('name', null, ['class' => 'search-box', 'placeholder'=>'アイテムを検索..']) !!}
                     {!! Form::button('<i class="fas fa-search"></i>', ['class' => 'search-btn', 'type' => 'submit']) !!}
                 </div>
             {!! Form::close() !!}
@@ -74,11 +74,11 @@
             {{-- アイテムの登録がないとき --}}
             <div class="center jumbotron">
                 <div class="text-center">
-                    <h3>さっそく商品を登録してみましょう！</h3>
+                    <h3>さっそくアイテムを登録してみましょう！</h3>
                     <p>(例) トマト、割り箸</p>
                     <p class="text-danger">＜※カテゴリー、買い出し先から先に登録してください＞</p>
                     {{-- 登録ページへのリンク --}}
-                    {!! link_to_route('items.create', '商品を新規作成', [], ['class' => 'orange-btn btn-lg']) !!}
+                    {!! link_to_route('items.create', 'アイテムを新規作成', [], ['class' => 'orange-btn btn-lg']) !!}
                 </div>
             </div>
         @endif

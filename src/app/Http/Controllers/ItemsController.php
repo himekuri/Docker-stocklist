@@ -21,10 +21,10 @@ class ItemsController extends Controller
         $user = \Auth::user();
         // カテゴリー一覧を取得
         $categories = $user->categories()->orderBy('number', 'asc')->get();
-        // 商品一覧を取得
+        // アイテム一覧を取得
         $items = $user->items()->orderBy('created_at', 'asc')->get();
 
-        // 商品一覧ビューでそれを表示
+        // アイテム一覧ビューでそれを表示
         return view('items.index', [
             'items' => $items,
             'categories' => $categories,
@@ -43,7 +43,7 @@ class ItemsController extends Controller
         // 買い出し先一覧を取得
         $shops = $user->shops()->orderBy('number', 'asc')->get();
 
-        // 商品作成ビューを表示
+        // アイテム作成ビューを表示
         return view('items.create', [
             'item' => $item,
             'categories' => $categories,
@@ -77,7 +77,7 @@ class ItemsController extends Controller
             $request->image_url = asset('img/sample.png');
         }
 
-        // 認証済みユーザ（閲覧者）の商品として作成（リクエストされた値をもとに作成）
+        // 認証済みユーザ（閲覧者）のアイテムとして作成（リクエストされた値をもとに作成）
         $request->user()->items()->create([
             'name' => $request->name,
             'image_url' => $request->image_url,
@@ -86,13 +86,13 @@ class ItemsController extends Controller
             'shop_id' => $request->shop_id,
         ]);
 
-        // 商品一覧へリダイレクトさせる
+        // アイテム一覧へリダイレクトさせる
         return redirect()->route('items.index');
     }
 
     public function edit($id)
     {
-        // idの値で商品を検索して取得
+        // idの値でアイテムを検索して取得
         $item = Item::findOrFail($id);
 
         if (\Auth::id() !== $item->user_id) {
@@ -125,7 +125,7 @@ class ItemsController extends Controller
             'shop_id' =>'required',
         ]);
 
-        // idの値で商品を検索して取得
+        // idの値でアイテムを検索して取得
         $item = Item::findOrFail($id);
 
         if (\Auth::id() !== $item->user_id) {
@@ -160,13 +160,13 @@ class ItemsController extends Controller
         $item->shop_id = $request->shop_id;
         $item->save();
 
-        // 商品一覧へリダイレクトさせる
+        // アイテム一覧へリダイレクトさせる
         return redirect()->route('items.index');
     }
 
     public function destroy($id)
     {
-        // idの値で商品を検索して取得
+        // idの値でアイテムを検索して取得
         $item = Item::findOrFail($id);
 
         if (\Auth::id() !== $item->user_id) {
@@ -179,7 +179,7 @@ class ItemsController extends Controller
 
         $item->delete();
 
-        // 商品一覧へリダイレクトさせる
+        // アイテム一覧へリダイレクトさせる
         return redirect()->route('items.index');
     }
 

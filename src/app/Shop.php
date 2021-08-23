@@ -9,7 +9,7 @@ class Shop extends Model
     protected $fillable = [
         'name', 'number', 'gmap_url',
     ];
-    
+
     /**
      * Userモデルとの関係を定義(この買い出し先を持つユーザ)
      */
@@ -17,9 +17,9 @@ class Shop extends Model
     {
         return $this->belongsTo(User::class);
     }
-    
+
     /**
-     * Itemモデルとの関係を定義（この買い出し先に所属する商品）
+     * Itemモデルとの関係を定義（この買い出し先に所属するアイテム）
      */
     public function items()
     {
