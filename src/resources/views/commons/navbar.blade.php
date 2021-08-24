@@ -23,9 +23,9 @@
                 <ul class="navbar-nav mr-auto"></ul>
                 <ul class="navbar-nav">
                     {{-- アカウント登録ページへのリンク --}}
-                    <li class="nav-item">{!! link_to_route('signup.get', 'アカウント登録', [], ['class' => 'nav-link']) !!}</li>
+                    <li class="nav-item {{ request()->route()->named('signup.get') ? 'active' : '' }}">{!! link_to_route('signup.get', 'アカウント登録', [], ['class' => 'nav-link']) !!}</li>
                     {{-- ログインページへのリンク --}}
-                    <li class="nav-item">{!! link_to_route('login', 'ログイン', [], ['class' => 'nav-link']) !!}</li>
+                    <li class="nav-item {{ request()->route()->named('login') ? 'active' : '' }}">{!! link_to_route('login', 'ログイン', [], ['class' => 'nav-link']) !!}</li>
                 </ul>
             @endif
         </div>
