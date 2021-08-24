@@ -39,22 +39,26 @@
                                 {{-- 買い出し先名を押すと編集ページへ飛ぶ --}}
                                 <td class="align-middle">
                                     <div class="col-md-8  d-inline-block edit-link">{!! link_to_route('items.edit', $item->name, ['item' => $item->id]) !!}</div>
-                                {{-- ステータスに応じたステータスボタンの表示 --}}
-                                @if($item->status == 2)
-                                    <div class="text-danger col-md-3 text-right d-inline-block">買い出し</div>
-                                @elseif($item->status == 1)
-                                    <div class="text-warning col-md-3 text-right d-inline-block">残りわずか</div>
-                                @else
-                                    <div class="text-success col-md-3 text-right d-inline-block">在庫あり</div>
-                                @endif
                                 </td>
+                                {{-- ステータスに応じたステータスボタンの表示 --}}
                                 <td class="col-3 align-middle">
                                     {!! Form::open(['method'=>'put','route'=>['items.status.update',$item->id]]) !!}
-                                        <select onchange="submit(this.form)" class="orange-outline-btn btn-sm mb-1" name="status">
-                                            <option value="" disabled selected>切り替え</option>
+                                        @if($item->status == 2)
+                                        <select onchange="submit(this.form)" class="red-outline-btn btn-sm mb-1" name="status">
                                             <option value="many">在庫あり</option>
                                             <option value="few">残りわずか</option>
+                                            <option value="none" selected>買い出し</option>
+                                        @elseif($item->status == 1)
+                                        <select onchange="submit(this.form)" class="orange-outline-btn btn-sm mb-1" name="status">
+                                            <option value="many">在庫あり</option>
+                                            <option value="few" selected>残りわずか</option>
                                             <option value="none">買い出し</option>
+                                        @else
+                                        <select onchange="submit(this.form)" class="green-outline-btn btn-sm mb-1" name="status">
+                                            <option value="many" selected>在庫あり</option>
+                                            <option value="few">残りわずか</option>
+                                            <option value="none">買い出し</option>
+                                        @endif
                                         </select>
                                     {!! Form::close() !!}
                                 </td>
