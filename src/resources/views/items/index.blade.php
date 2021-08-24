@@ -43,23 +43,17 @@
                                 {{-- ステータスに応じたステータスボタンの表示 --}}
                                 <td class="col-3 align-middle">
                                     {!! Form::open(['method'=>'put','route'=>['items.status.update',$item->id]]) !!}
-                                        @if($item->status == 2)
-                                        <select onchange="submit(this.form)" class="red-outline-btn btn-sm mb-1" name="status">
-                                            <option value="many">在庫あり</option>
-                                            <option value="few">残りわずか</option>
-                                            <option value="none" selected>買い出し</option>
-                                        @elseif($item->status == 1)
-                                        <select onchange="submit(this.form)" class="orange-outline-btn btn-sm mb-1" name="status">
-                                            <option value="many">在庫あり</option>
-                                            <option value="few" selected>残りわずか</option>
-                                            <option value="none">買い出し</option>
-                                        @else
-                                        <select onchange="submit(this.form)" class="green-outline-btn btn-sm mb-1" name="status">
-                                            <option value="many" selected>在庫あり</option>
-                                            <option value="few">残りわずか</option>
-                                            <option value="none">買い出し</option>
-                                        @endif
-                                        </select>
+                                        {{
+                                            Form::select(
+                                                'status',
+                                                ['many' =>'在庫あり', 'few' => '残りわずか', 'none' => '買い出し'],
+                                                ['many', 'few', 'none'][$item->status],
+                                                array(
+                                                    'class' => ['green', 'orange', 'red'][$item->status].'-outline-btn btn-sm mb-1',
+                                                    'onchange' => 'submit(this.form)'
+                                                )
+                                            )
+                                        }}
                                     {!! Form::close() !!}
                                 </td>
                             </tr>
