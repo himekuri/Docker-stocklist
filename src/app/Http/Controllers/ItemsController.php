@@ -128,6 +128,7 @@ class ItemsController extends Controller
             'image_id' => 'nullable',
             'category_id' =>'required',
             'shop_id' =>'required',
+            'status' => 'required',
         ]);
 
         // idの値でアイテムを検索して取得

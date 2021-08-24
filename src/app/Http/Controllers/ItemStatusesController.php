@@ -19,7 +19,7 @@ class ItemStatusesController extends Controller
             $item->status = 2;
         } else if($status == 'few') {
             $item->status = 1;
-        } else {
+        } else if($status == 'many') {
             $item->status = 0;
         }
         $item->save();
