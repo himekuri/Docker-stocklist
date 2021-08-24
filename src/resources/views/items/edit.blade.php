@@ -44,6 +44,16 @@
                     <div class="border border-danger rounded p-2 mb-2">先に買い出し先を設定してください</div>
                 @endif
 
+                <div class="form-group">
+                    {!! Form::label('status', '在庫状況',['class' => 'd-block']) !!}
+                    {!! Form::radio('status', '0', ($status == '0') ? true : false) !!}
+                    {!! Form::label('status', '在庫あり') !!}
+                    {!! Form::radio('status', '1', ($status == '1') ? true : false) !!}
+                    {!! Form::label('status', '残りわずか') !!}
+                    {!! Form::radio('status', '2', ($status == '2') ? true : false) !!}
+                    {!! Form::label('status', '買い出し') !!}
+                </div>
+
 
                 {!! Form::submit('更新', ['class' => 'orange-btn btn-block']) !!}
 

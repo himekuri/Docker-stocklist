@@ -61,6 +61,7 @@ class ItemsController extends Controller
             'image_id' => 'nullable',
             'category_id' =>'required',
             'shop_id' =>'required',
+            'status' => 'required',
         ]);
 
         if ($image = $request->file('image_url')) {
@@ -84,6 +85,7 @@ class ItemsController extends Controller
             'image_id' => $request->image_id,
             'category_id' => $request->category_id,
             'shop_id' => $request->shop_id,
+            'status' => $request->status,
         ]);
 
         // アイテム一覧へリダイレクトさせる
@@ -105,11 +107,14 @@ class ItemsController extends Controller
         $categories = $user->categories()->orderBy('number', 'asc')->get();
         // 買い出し先一覧を取得
         $shops = $user->shops()->orderBy('number', 'asc')->get();
+        // 在庫状況を取得
+        $status = $item->status;
 
         return view('items.edit', [
             'item' => $item,
             'categories' => $categories,
             'shops' => $shops,
+            'status' => $status,
         ]);
     }
 
