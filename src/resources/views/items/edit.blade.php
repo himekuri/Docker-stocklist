@@ -12,7 +12,7 @@
 
                 <div class="form-group">
                     {!! Form::label('name', '名前') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                    {!! Form::text('name', null, ['class' => 'form-control', 'required']) !!}
                 </div>
 
                 <div class="form-group">
@@ -24,7 +24,7 @@
                     <div class="form-group">
                         {!! Form::label('category_select', 'カテゴリー',['class' => 'd-block']) !!}
                         @foreach ($categories as $category)
-                        {{ Form::radio('category_id',$category->id , false) }}
+                        {{ Form::radio('category_id',$category->id , false, ['required']) }}
                         {!! Form::label('category_id', $category->name) !!}
                         @endforeach
                     </div>
@@ -36,7 +36,7 @@
                     <div class="form-group">
                         {!! Form::label('shop_select', '買い出し先',['class' => 'd-block']) !!}
                         @foreach ($shops as $shop)
-                        {{ Form::radio('shop_id', $shop->id, false, ['shop_id' => $shop->id]) }}
+                        {{ Form::radio('shop_id', $shop->id, false, ['required']) }}
                         {!! Form::label('shop_id', $shop->name) !!}
                         @endforeach
                     </div>
@@ -46,7 +46,7 @@
 
                 <div class="form-group">
                     {!! Form::label('status', '在庫状況',['class' => 'd-block']) !!}
-                    {!! Form::radio('status', '0', ($status == '0') ? true : false) !!}
+                    {!! Form::radio('status', '0', ($status == '0') ? true : false, ['required']) !!}
                     {!! Form::label('status', '在庫あり') !!}
                     {!! Form::radio('status', '1', ($status == '1') ? true : false) !!}
                     {!! Form::label('status', '残りわずか') !!}
@@ -55,7 +55,7 @@
                 </div>
 
 
-                {!! Form::submit('更新', ['class' => 'orange-btn btn-block']) !!}
+                {!! Form::submit('更新', ['class' => 'orange-btn btn-block send']) !!}
 
             {!! Form::close() !!}
 

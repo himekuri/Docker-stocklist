@@ -10,7 +10,7 @@
 
             <div class="form-group">
                 {!! Form::label('name', '名前') !!}
-                {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                {!! Form::text('name', null, ['class' => 'form-control', 'required']) !!}
             </div>
 
             <div class="form-group">
@@ -19,7 +19,7 @@
 
             </div>
 
-            {!! Form::submit('登録', ['class' => 'orange-btn btn-block']) !!}
+            {!! Form::submit('登録', ['class' => 'orange-btn btn-block send', 'disabled']) !!}
 
         {!! Form::close() !!}
     </div>

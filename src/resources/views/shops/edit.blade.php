@@ -12,7 +12,7 @@
 
                 <div class="form-group">
                     {!! Form::label('name', '名前') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                    {!! Form::text('name', null, ['class' => 'form-control', 'required']) !!}
                 </div>
 
                 <div class="form-group">
@@ -25,7 +25,7 @@
                     {!! Form::text('gmap_url', null, ['class' => 'form-control']) !!}
                 </div>
 
-                {!! Form::submit('更新', ['class' => 'orange-btn btn-block']) !!}
+                {!! Form::submit('更新', ['class' => 'orange-btn btn-block send']) !!}
 
             {!! Form::close() !!}
 

@@ -60,6 +60,11 @@ header{
     box-shadow: 0 0 0 0.2rem rgb(255 193 7 / 50%);
 }
 
+.orange-btn:disabled {
+    background-color: #f0b470fa;
+    border-color: #f0b470fa;
+}
+
 .orange-outline-btn{
 	display: inline-block;
     font-weight: 400;

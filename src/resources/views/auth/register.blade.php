@@ -11,25 +11,25 @@
             {!! Form::open(['route' => 'signup.post']) !!}
                 <div class="form-group">
                     {!! Form::label('name', 'お名前') !!}
-                    {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
+                    {!! Form::text('name', old('name'), ['class' => 'form-control', 'required']) !!}
                 </div>
 
                 <div class="form-group">
                     {!! Form::label('email', 'メールアドレス') !!}
-                    {!! Form::email('email', old('email'), ['class' => 'form-control']) !!}
+                    {!! Form::email('email', old('email'), ['class' => 'form-control', 'required']) !!}
                 </div>
 
                 <div class="form-group">
                     {!! Form::label('password', 'パスワード') !!}
-                    {!! Form::password('password', ['class' => 'form-control']) !!}
+                    {!! Form::password('password', ['class' => 'form-control', 'required']) !!}
                 </div>
 
                 <div class="form-group">
                     {!! Form::label('password_confirmation', 'パスワード確認') !!}
-                    {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
+                    {!! Form::password('password_confirmation', ['class' => 'form-control', 'required']) !!}
                 </div>
 
-                {!! Form::submit('登録', ['class' => 'orange-btn btn-block']) !!}
+                {!! Form::submit('登録', ['class' => 'orange-btn btn-block send', 'disabled']) !!}
             {!! Form::close() !!}
         </div>
     </div>
