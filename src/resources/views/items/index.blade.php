@@ -80,4 +80,5 @@
             </div>
         @endif
     </div>
+    <example-component :data="{{ json_encode(['title' => $title]) }}"></example-component>
 @endsection

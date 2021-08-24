@@ -24,10 +24,13 @@ class ItemsController extends Controller
         // アイテム一覧を取得
         $items = $user->items()->orderBy('created_at', 'asc')->get();
 
+        $title = 'title';
+
         // アイテム一覧ビューでそれを表示
         return view('items.index', [
             'items' => $items,
             'categories' => $categories,
+            'title' => $title,
         ]);
 
     }
