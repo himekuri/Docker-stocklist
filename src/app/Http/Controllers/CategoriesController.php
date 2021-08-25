@@ -50,8 +50,17 @@ class CategoriesController extends Controller
             'number' => $request->number,
         ]);
 
-        // カテゴリー一覧へリダイレクトさせる
-        return redirect()->route('categories.index');
+        $exploded_url = explode("/", $request->url);
+        $path = array_pop($exploded_url);
+        if ($path === 'create') {
+            return redirect()->route('items.create');
+        } elseif ($path === 'edit') {
+            return redirect()->route('items.edit', array_pop($exploded_url));
+        } else {
+            // カテゴリー一覧へリダイレクトさせる
+            return redirect()->route('categories.index');
+        }
+
     }
 
     public function edit($id)
