@@ -10,6 +10,16 @@ header{
 	background-color: #F29800;
 }
 
+.container .nav .nav-item{
+    flex: 1 1 0;
+    color: #d0cccc;
+}
+
+.container .nav .nav-link.active{
+    color: #F29800;
+
+    font-weight: bold;
+}
 
 .form-group {
     margin-top: 2rem;
