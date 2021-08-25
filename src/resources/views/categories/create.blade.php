@@ -9,12 +9,12 @@
         {!! Form::model($category, ['route' => 'categories.store', 'id' => 'form']) !!}
 
             <div class="form-group">
-                {!! Form::label('name', '名前') !!}
+                {!! Form::label('name', '名前', ['class' => 'input-label']) !!}
                 {!! Form::text('name', null, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
-                {!! Form::label('number', '並び順',['class' => 'd-block']) !!}
+                {!! Form::label('number', '並び順',['class' => 'd-block input-label']) !!}
                 {!! Form::select('number',App\Category::numbers(),['class' => 'form-control'] ) !!}
 
             </div>

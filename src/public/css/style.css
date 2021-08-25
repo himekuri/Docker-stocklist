@@ -10,11 +10,21 @@ header{
 	background-color: #F29800;
 }
 
+.form-group {
+    margin-top: 2rem;
+}
+
 .page-title{
 	color: #F29800;
 	text-align: center;
 	margin-top: 40px;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.input-label{
+    font-weight: 600;
+    color: rgb(68, 74, 78);
 }
 
 .main{

@@ -10,12 +10,12 @@
 
             {!! Form::open(['route' => 'login.post', 'id' => 'form']) !!}
                 <div class="form-group">
-                    {!! Form::label('email', 'メールアドレス') !!}
+                    {!! Form::label('email', 'メールアドレス', ['class' => 'input-label']) !!}
                     {!! Form::email('email', old('email'), ['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('password', 'パスワード') !!}
+                    {!! Form::label('password', 'パスワード', ['class' => 'input-label']) !!}
                     {!! Form::password('password', ['class' => 'form-control']) !!}
                 </div>
 
