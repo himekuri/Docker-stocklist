@@ -74,7 +74,7 @@ header{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    border: 1px solid #F29800;
+    border: 2px solid #F29800;
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -105,7 +105,7 @@ header{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    border: 1px solid #dc3545;
+    border: 2px solid #dc3545;
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -136,7 +136,7 @@ header{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    border: 1px solid #27A744;
+    border: 2px solid #27A744;
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;

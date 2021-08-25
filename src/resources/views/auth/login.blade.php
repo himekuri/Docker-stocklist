@@ -8,15 +8,15 @@
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
 
-            {!! Form::open(['route' => 'login.post']) !!}
+            {!! Form::open(['route' => 'login.post', 'id' => 'form']) !!}
                 <div class="form-group">
                     {!! Form::label('email', 'メールアドレス') !!}
-                    {!! Form::email('email', old('email'), ['class' => 'form-control', 'required']) !!}
+                    {!! Form::email('email', old('email'), ['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
                     {!! Form::label('password', 'パスワード') !!}
-                    {!! Form::password('password', ['class' => 'form-control', 'required']) !!}
+                    {!! Form::password('password', ['class' => 'form-control']) !!}
                 </div>
 
                 {!! Form::submit('ログイン', ['class' => 'orange-btn btn-block send', 'disabled']) !!}

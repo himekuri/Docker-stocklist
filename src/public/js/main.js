@@ -1,14 +1,30 @@
-$(function() {
+$(document).ready(function () {
 
-    //入力欄の操作時
-    $('form input:required').change(function () {
+    $('#form input').on('input', function () {
+
         let flag = true;
-        $('form input:required').each(function(e) {
-            //もし必須項目が空なら
-            if ($('form input:required').eq(e).val() === "") {
+
+
+        if (
+            $('#form input[type="text"]').val() == "" ||
+            $('#form input[type="email"]').val() == "" ||
+            $('#form input[type="password"]').val() == ""||
+            $('#form input[name="password_confirmation"]').val() == ""
+        ) {
+            flag = false;
+        }
+
+
+
+        $('#form .radio').each(function(index, element) {
+
+            let name = $($(this).find("input")).attr('name');
+
+            if (!$(`input[name=${name}]:checked`).val()){
                 flag = false;
             }
         });
+
         if (flag) {
             //送信ボタンを押せるようにする
             $('.send').prop("disabled", false);

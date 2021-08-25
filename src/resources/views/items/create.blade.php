@@ -8,11 +8,11 @@
 
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
-            {!! Form::model($item, ['route' => 'items.store','files' => true, 'required']) !!}
+            {!! Form::model($item, ['route' => 'items.store','files' => true, 'id' => 'form']) !!}
 
                 <div class="form-group">
                     {!! Form::label('name', '名前') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'required']) !!}
+                    {!! Form::text('name', null, ['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
@@ -21,10 +21,10 @@
                 </div>
 
                 @if (count($categories)>0)
-                    <div class="form-group">
+                    <div class="form-group radio">
                         {!! Form::label('category_select', 'カテゴリー',['class' => 'd-block']) !!}
                         @foreach ($categories as $category)
-                        {!! Form::radio('category_id',$category->id , false, ['required']) !!}
+                        {!! Form::radio('category_id',$category->id , false) !!}
                         {!! Form::label('category_id', $category->name) !!}
                         @endforeach
                     </div>
@@ -33,10 +33,10 @@
                 @endif
 
                 @if (count($shops)>0)
-                    <div class="form-group">
+                    <div class="form-group radio">
                         {!! Form::label('shop_select', '買い出し先',['class' => 'd-block']) !!}
                         @foreach ($shops as $shop)
-                        {!! Form::radio('shop_id', $shop->id, false, ['required']) !!}
+                        {!! Form::radio('shop_id', $shop->id, false) !!}
                         {!! Form::label('shop_id', $shop->name) !!}
                         @endforeach
                     </div>
@@ -45,9 +45,9 @@
                 @endif
 
                 {{-- ステータスの登録 --}}
-                <div class="form-group">
+                <div class="form-group radio">
                     {!! Form::label('status', '在庫状況',['class' => 'd-block']) !!}
-                    {!! Form::radio('status', '0', true, ['required']) !!}
+                    {!! Form::radio('status', '0', true) !!}
                     {!! Form::label('status', '在庫あり') !!}
                     {!! Form::radio('status', '1', false) !!}
                     {!! Form::label('status', '残りわずか') !!}

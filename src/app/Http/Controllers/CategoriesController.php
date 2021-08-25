@@ -22,9 +22,9 @@ class CategoriesController extends Controller
         return view('categories.index', [
             'categories' => $categories,
         ]);
-        
+
     }
-    
+
     public function create()
     {
         $category = new Category;
@@ -34,7 +34,7 @@ class CategoriesController extends Controller
             'category' => $category,
         ]);
     }
-    
+
     public function store(Request $request)
     {
         // バリデーション
@@ -42,8 +42,8 @@ class CategoriesController extends Controller
             'name' => 'required|max:5',
             'number' => 'required',
         ]);
-       
-        
+
+
         // 認証済みユーザ（閲覧者）のカテゴリーとして作成（リクエストされた値をもとに作成）
         $request->user()->categories()->create([
             'name' => $request->name,
@@ -53,7 +53,7 @@ class CategoriesController extends Controller
         // カテゴリー一覧へリダイレクトさせる
         return redirect()->route('categories.index');
     }
-    
+
     public function edit($id)
     {
         // idの値でカテゴリーを検索して取得
@@ -62,10 +62,10 @@ class CategoriesController extends Controller
         if (\Auth::id() !== $category->user_id) {
             return redirect('/');
         }
-        
+
         return view('categories.edit', ['category' => $category,]);
     }
-    
+
     public function update(Request $request, $id)
     {
         // バリデーション
@@ -73,33 +73,33 @@ class CategoriesController extends Controller
             'name' => 'required|max:5',
             'number' => 'required',
         ]);
-        
+
         // idの値でカテゴリーを検索して取得
         $category = Category::findOrFail($id);
-        
+
         if (\Auth::id() !== $category->user_id) {
             return redirect('/');
         }
-        
+
         $category->name  = $request->name;
         $category->number = $request->number;
         $category->save();
-        
+
         // カテゴリー一覧へリダイレクトさせる
         return redirect()->route('categories.index');
     }
-    
+
     public function destroy($id)
     {
         // idの値でカテゴリーを検索して取得
         $category = Category::findOrFail($id);
-        
+
         if (\Auth::id() !== $category->user_id) {
             return redirect('/');
         }
-        
+
         $category->delete();
-        
+
         // カテゴリー一覧へリダイレクトさせる
         return redirect()->route('categories.index');
     }

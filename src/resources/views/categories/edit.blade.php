@@ -8,11 +8,11 @@
 
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
-            {!! Form::model($category, ['route' => ['categories.update', $category->id ],'method' => 'put']) !!}
+            {!! Form::model($category, ['route' => ['categories.update', $category->id ],'method' => 'put', 'id' => 'form']) !!}
 
                 <div class="form-group">
                     {!! Form::label('name', '名前') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'required']) !!}
+                    {!! Form::text('name', null, ['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
