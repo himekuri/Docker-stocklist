@@ -25,6 +25,7 @@
                     {!! Form::text('gmap_url', null, ['class' => 'form-control']) !!}
                 </div>
 
+                {!! Form::text('url', url()->previous(), ['style' => 'display:none;']) !!}
                 {!! Form::submit('登録', ['class' => 'orange-btn btn-block send', 'disabled']) !!}
 
             {!! Form::close() !!}
