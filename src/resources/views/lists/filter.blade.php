@@ -13,8 +13,8 @@
 
         {{-- 表示の絞り込み機能 --}}
         <div class = "text-center mb-3">
-            <button type="button" class="btn btn-danger mb-1" disabled>買い出しのみ</button>
-            {!! link_to_route('lists.index', '残りわずかも含む', [], ['class' => 'btn btn-warning mb-1']) !!}
+            <button type="button" class="red-btn mb-1" disabled>買い出しのみ</button>
+            {!! link_to_route('lists.index', '残りわずかも含む', [], ['class' => 'yellow-btn mb-1']) !!}
         </div>
 
         {{-- 買い出しがあるとき買い出し先ごとに一覧で表示する --}}

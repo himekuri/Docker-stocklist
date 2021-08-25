@@ -60,10 +60,87 @@ header{
     box-shadow: 0 0 0 0.2rem rgb(255 193 7 / 50%);
 }
 
+
 .orange-btn:disabled {
-    background-color: #f0b470fa;
-    border-color: #f0b470fa;
+    background-color: #D8D8D8;
+    border-color: #D8D8D8;
+    opacity: 0.6;
 }
+
+.red-btn{
+	display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid #dc3545;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+	color: #fff;
+    background-color: #dc3545;
+	margin-bottom: 1rem !important;
+}
+
+.red-btn:hover {
+    color: #fff;
+	background-color: #b62a38;
+    border-color: #b62a38;
+    text-decoration: none;
+}
+
+.red-btn:focus {
+    box-shadow: 0 0 0 0.2rem #d8979d;
+}
+
+.red-btn:disabled {
+    background-color: #D8D8D8;
+    border-color: #D8D8D8;
+    opacity: 0.6;
+}
+
+.yellow-btn{
+	display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid #FFC106;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+	color: #fff;
+    background-color: #FFC106;
+	margin-bottom: 1rem !important;
+}
+
+.yellow-btn:hover {
+    color: #fff;
+	background-color: #daa917;
+    border-color: #daa917;
+    text-decoration: none;
+}
+
+.yellow-btn:focus {
+    box-shadow: 0 0 0 0.2rem #ebcb6c;
+}
+
+.yellow-btn:disabled {
+    background-color: #D8D8D8;
+    border-color: #D8D8D8;
+    opacity: 0.6;
+}
+
 
 .orange-outline-btn{
 	display: inline-block;
@@ -124,7 +201,7 @@ header{
 }
 
 .red-outline-btn:focus {
-    box-shadow: 0 0 0 0.2rem rgb(255 193 7 / 50%);
+    box-shadow: 0 0 0 0.2rem  #d8979d;
 }
 
 .green-outline-btn{
@@ -155,7 +232,7 @@ header{
 }
 
 .green-outline-btn:focus {
-    box-shadow: 0 0 0 0.2rem rgb(255 193 7 / 50%);
+    box-shadow: 0 0 0 0.2rem #93c9a0;
 }
 
 .search-form{
