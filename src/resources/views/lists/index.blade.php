@@ -12,9 +12,9 @@
         </div>
 
         {{-- 表示の絞り込み機能 --}}
-        <div class = "text-center mb-3">
-            {!! link_to_route('lists.filter', '買い出しのみ', [], ['class' => 'red-btn mb-1']) !!}
-            <button type="button" class="yellow-btn mb-1" disabled>残りわずかも含む</button>
+        <div class = "mb-3 filter-group">
+            {!! link_to_route('lists.filter', '　買い出しのみ　', [], ['class' => 'filter-btn orange-btn mb-1']) !!}
+            <button type="button" class="filter-btn orange-btn mb-1" disabled>残りわずかも含む</button>
         </div>
 
         {{-- 買い出し・残りわずかがあるとき買い出し先ごとに一覧で表示する --}}
@@ -25,6 +25,9 @@
                 @foreach ($shops as $shop)
                     {{-- 買い出し先の名前を表示する --}}
                     <div class="category-shop-title pl-2">{{$shop->name}}</div>
+                    @if (count($shop->items)==0)
+                        <div class="text-center pt-2"><p>買うものはありません</p></div>
+                    @endif
                     <table class="table">
                         <tbody>
                             @foreach($shop->items->whereIn('status',[1,2]) as $item)
