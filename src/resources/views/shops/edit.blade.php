@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('number', '並び順',['class' => 'd-block input-label']) !!}
+                    {!! Form::label('number', 'デフォルトの並び順',['class' => 'd-block input-label']) !!}
                     {!! Form::select('number',App\Category::numbers(),['class' => 'form-control'] ) !!}
                 </div>
 

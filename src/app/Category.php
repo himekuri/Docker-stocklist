@@ -34,4 +34,5 @@ class Category extends Model
         }
         return $numbers;
     }
+
 }

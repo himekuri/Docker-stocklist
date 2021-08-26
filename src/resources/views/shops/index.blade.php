@@ -12,6 +12,19 @@
         <div class="text-center">
             <a href="/shops/create" class="mb-3 orange-btn">買い出し先追加</a>
         </div>
+        <div>
+            {!! Form::open(['method'=>'get','route'=>['shops.index']]) !!}
+                {!! Form::label('shops_sort', '並び替え',['class' => '']) !!}
+                {{
+                    Form::select(
+                        'shops_sort',
+                        ['default' =>'デフォルト', 'name_asc' => '名前 ：昇順', 'name_desc' => '名前 ：降順'],
+                        $select,
+                        ['class' => '', 'onchange' => 'submit(this.form)']
+                    )
+                }}
+            {!! Form::close() !!}
+        </div>
         <table class="table">
             <tbody>
                 @foreach ($shops as $shop)

@@ -8,20 +8,32 @@ use App\Shop;
 
 class ShopsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         // 未ログインの場合はwelcomeページを表示
         if (!\Auth::check()){
             return view('welcome');
         }
+        $select = 'default';
+        $select = $request->shops_sort;
 
         // 認証済みユーザを取得
         $user = \Auth::user();
         // 買い出し先一覧を取得
-        $shops = $user->shops()->orderBy('number', 'asc')->paginate(10);
+        $shops = $user->shops();
+
+        if($select == 'name_asc'){
+            $sorted_shops = $shops->orderBy('name', 'asc')->get();
+        } elseif($select == 'name_desc') {
+            $sorted_shops = $shops->orderBy('name', 'desc')->get();
+        } else {
+            $sorted_shops = $shops->orderBy('number', 'asc')->get();
+        }
+
         // 買い出し先一覧ビューでそれを表示
         return view('shops.index', [
-            'shops' => $shops,
+            'shops' => $sorted_shops,
+            'select' => $select
         ]);
 
     }
