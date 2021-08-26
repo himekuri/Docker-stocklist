@@ -54,7 +54,7 @@
                                         <div class="text-warning col-md-3 d-inline-block">残りわずか</div>
                                     </td>
                                     @endif
-                                    <td class="align-middle">
+                                    <td class="align-middle col-1">
                                         <div class="form-check col-3">
                                             <input class="form-check-input position-static" type="checkbox" name="cheked_item[]" value= {{$item->id}} >
                                         </div>
