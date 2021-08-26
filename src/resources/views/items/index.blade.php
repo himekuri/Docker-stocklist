@@ -24,12 +24,9 @@
 
             {{-- アイテム一覧をカテゴリーごとに表示 --}}
             @foreach ($categories as $category)
+            @if (count($category->items) >= 1)
                 {{-- カテゴリー名 --}}
                 <div class="category-shop-title pl-2">{{$category->name}}</div>
-                {{-- カテゴリーに登録がない時の表示 --}}
-                @if (count($category->items)==0)
-                    <div class="text-center pt-2"><p>登録されていません</p></div>
-                @endif
                 {{-- カテゴリー内のアイテム --}}
                 <table class="table">
                     <tbody>
@@ -60,6 +57,7 @@
                         @endforeach
                     </tbody>
                 </table>
+            @endif
             @endforeach
         @else
             {{-- アイテムの登録がないとき --}}

@@ -13,21 +13,32 @@
 
         {{-- 表示の絞り込み機能 --}}
         <div class = "mb-3 filter-group">
-            {!! link_to_route('lists.filter', '　買い出しのみ　', [], ['class' => 'filter-btn orange-btn mb-1']) !!}
+            <button type="button" class="filter-btn orange-btn mb-1" onclick="location.href='/lists/filter'">　買い出しのみ　</button>
             <button type="button" class="filter-btn orange-btn mb-1" disabled>残りわずかも含む</button>
         </div>
 
         {{-- 買い出し・残りわずかがあるとき買い出し先ごとに一覧で表示する --}}
         @if (count($items)>0)
+            <div class="mb-3">
+                {!! Form::open(['method'=>'get','route'=>['lists.index']]) !!}
+                    {!! Form::label('shops_sort', '並び替え',['class' => 'sort-label']) !!}
+                    {{
+                        Form::select(
+                            'shops_sort',
+                            ['default' =>'デフォルト', 'name_asc' => '名前 ：昇順', 'name_desc' => '名前 ：降順'],
+                            $select,
+                            ['class' => 'black-outline-btn btn-sm', 'onchange' => 'submit(this.form)']
+                        )
+                    }}
+                {!! Form::close() !!}
+            </div>
             <form method="post" action="{{ route('lists.update') }}">
                 @csrf
                 @method('put')
                 @foreach ($shops as $shop)
+                @if (count($shop->items->whereIn('status',[1,2])) >= 1)
                     {{-- 買い出し先の名前を表示する --}}
                     <div class="category-shop-title pl-2">{{$shop->name}}</div>
-                    @if (count($shop->items)==0)
-                        <div class="text-center pt-2"><p>買うものはありません</p></div>
-                    @endif
                     <table class="table">
                         <tbody>
                             @foreach($shop->items->whereIn('status',[1,2]) as $item)
@@ -52,6 +63,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                @endif
                 @endforeach
                 <div class="border-top pt-4 mt-4 text-center">
                     <button type="submit" name="store" value="submit" class="orange-btn">チェックを反映する</button>

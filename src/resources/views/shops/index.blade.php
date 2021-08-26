@@ -14,13 +14,13 @@
         </div>
         <div>
             {!! Form::open(['method'=>'get','route'=>['shops.index']]) !!}
-                {!! Form::label('shops_sort', '並び替え',['class' => '']) !!}
+                {!! Form::label('shops_sort', '並び替え',['class' => 'sort-label']) !!}
                 {{
                     Form::select(
                         'shops_sort',
                         ['default' =>'デフォルト', 'name_asc' => '名前 ：昇順', 'name_desc' => '名前 ：降順'],
                         $select,
-                        ['class' => '', 'onchange' => 'submit(this.form)']
+                        ['class' => 'black-outline-btn btn-sm', 'onchange' => 'submit(this.form)']
                     )
                 }}
             {!! Form::close() !!}
