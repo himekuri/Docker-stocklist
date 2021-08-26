@@ -39,7 +39,7 @@ class CategoriesController extends Controller
     {
         // バリデーション
         $request->validate([
-            'name' => 'required|max:5',
+            'name' => 'required|max:10',
             'number' => 'required',
         ]);
 
@@ -79,7 +79,7 @@ class CategoriesController extends Controller
     {
         // バリデーション
         $request->validate([
-            'name' => 'required|max:5',
+            'name' => 'required|max:10',
             'number' => 'required',
         ]);
 

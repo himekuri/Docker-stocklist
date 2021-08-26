@@ -55,7 +55,7 @@ class ItemsController extends Controller
     {
         // バリデーション
         $request->validate([
-            'name' => 'required|max:5',
+            'name' => 'required|max:10',
             //写真の登録は任意
             'image_url' => 'nullable',
             'image_id' => 'nullable',
@@ -122,7 +122,7 @@ class ItemsController extends Controller
     {
         // バリデーション
         $request->validate([
-            'name' => 'required|max:5',
+            'name' => 'required|max:10',
             //写真の登録は任意
             'image_url' => 'nullable',
             'image_id' => 'nullable',
