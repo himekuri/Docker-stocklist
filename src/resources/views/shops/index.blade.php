@@ -15,6 +15,7 @@
     <div class="hp_textRight hp_mb">
         {!! Form::open(['method'=>'get','route'=>['shops.index']]) !!}
             {!! Form::label('shops_sort', '並び替え',['class' => 'el_sortLabel']) !!}
+            <div class="bl_selectWrap">
             {{
                 Form::select(
                     'shops_sort',
@@ -23,6 +24,7 @@
                     ['class' => 'el_btn el_btnOutlineBlack', 'onchange' => 'submit(this.form)']
                 )
             }}
+            </div>
         {!! Form::close() !!}
     </div>
     <table class="bl_table">
