@@ -15,7 +15,9 @@
 
             <div class="bl_form_group">
                 {!! Form::label('number', 'デフォルトの並び順',['class' => 'bl_form_label']) !!}
+                <div class="bl_selectWrap">
                 {!! Form::select('number',App\Category::numbers(),['class' => 'bl_form_input'] ) !!}
+                </div>
 
             </div>
             {!! Form::submit('更新', ['class' => 'el_btn el_btnOrange hp_widthFull is_send']) !!}

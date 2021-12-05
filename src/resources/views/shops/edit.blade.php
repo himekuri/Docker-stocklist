@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="bl_pageTitle">
-        <h3>買い出し先編集</h3>
+        <h2>買い出し先編集</h2>
     </div>
     <div class="bl_form">
         {!! Form::model($shop, ['route' => ['shops.update',$shop->id],'method' => 'put', 'id' => 'form']) !!}
@@ -15,7 +15,9 @@
 
             <div class="bl_form_group">
                 {!! Form::label('number', 'デフォルトの並び順',['class' => 'bl_form_label']) !!}
+                <div class="bl_selectWrap">
                 {!! Form::select('number',App\Category::numbers(),['class' => 'bl_form_input'] ) !!}
+                </div>
             </div>
 
             <div class="bl_form_group">
