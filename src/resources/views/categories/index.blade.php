@@ -1,33 +1,32 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="page-title">
+    <div class="bl_pageTitle">
         <h2>カテゴリー一覧</h2>
     </div>
     {{-- カテゴリー一覧を表示する --}}
      @if (count($categories)>0)
-        {{-- カテゴリー追加ボタン --}}
-        <div class="text-center">
-            <a href="/categories/create" class="mb-3 orange-btn">カテゴリー追加</a>
-        </div>
-        <table class="table">
-            <tbody>
-                @foreach ($categories as $category)
-                    <tr>
-                        {{-- カテゴリー名を押すと編集ページへ飛ぶ --}}
-                        <td class="align-middle edit-link">{!! link_to_route('categories.edit', $category->name, ['category' => $category->id]) !!}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+    {{-- カテゴリー追加ボタン --}}
+    <div class="hp_textCenter">
+        <a href="/categories/create" class="hp_mb el_btn el_btnOrange">カテゴリー追加</a>
+    </div>
+    <table class="bl_table">
+        <tbody>
+            @foreach ($categories as $category)
+                <tr>
+                    {{-- カテゴリー名を押すと編集ページへ飛ぶ --}}
+                    <td class="el_editLink">{!! link_to_route('categories.edit', $category->name, ['category' => $category->id]) !!}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
     @else
-        <div class="center jumbotron">
-            <div class="text-center">
-                <h3>さっそくカテゴリーを登録してみましょう！</h3>
-                <p>(例) 野菜、ドリンク、備品</p>
-                {{-- カテゴリー登録ページへのリンク --}}
-                {!! link_to_route('categories.create', 'カテゴリーを新規作成', [], ['class' => 'orange-btn btn-lg']) !!}
-            </div>
+    <div class="hp_textCenter">
+        <div class="hp_textCenter">
+            <p><img class="bl_firstGuideImg" src="img/category-guide.png" alt="さっそくカテゴリーを登録してみましょう！"></p>
+            {{-- 登録ページへのリンク --}}
+            {!! link_to_route('categories.create', 'カテゴリーを新規登録', [], ['class' => 'hp_mb el_btn el_btnOrange']) !!}
         </div>
+    </div>
     @endif
 @endsection

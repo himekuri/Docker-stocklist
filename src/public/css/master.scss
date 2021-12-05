@@ -1,0 +1,20 @@
+// レスポンシブデザイン
+$pc: 960px;
+$tb: 560px;
+@mixin pc {
+  @media (min-width: ($pc)){
+    @content;
+  }
+}
+@mixin tb {
+  @media (min-width: ($tb)){
+    @content;
+  }
+}
+
+@import 'common.scss';
+@import 'component.scss';
+@import 'helper.scss';
+@import 'list.scss';
+@import 'style.scss';
+@import 'toppage.scss';

@@ -1,3 +1,4 @@
+// フォームボタンの制御
 $(document).ready(function () {
 
     $('#form input').on('input', function () {
@@ -14,9 +15,7 @@ $(document).ready(function () {
             flag = false;
         }
 
-
-
-        $('#form .radio').each(function(index, element) {
+        $('#form .js_radio').each(function(index, element) {
 
             let name = $($(this).find("input")).attr('name');
 
@@ -27,11 +26,19 @@ $(document).ready(function () {
 
         if (flag) {
             //送信ボタンを押せるようにする
-            $('.send').prop("disabled", false);
+            $('.is_send').prop("disabled", false);
         }
         else {
             //送信ボタンを押せないようにする
-            $('.send').prop("disabled", true);
+            $('.is_send').prop("disabled", true);
         }
     });
 });
+
+// アコーディオンメニューの開閉
+function toggle() {
+    document.getElementById('navbar_nav').classList.toggle("is_show");
+    document.getElementById('navbar_nav_logout').classList.toggle("is_show");
+}
+
+document.getElementById('headerToggler').addEventListener("click", toggle);

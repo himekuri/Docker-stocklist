@@ -2,39 +2,36 @@
 
 @section('content')
 
-    <div class="page-title">
+    <div class="bl_pageTitle">
         <h3>買い出し先編集</h3>
     </div>
+    <div class="bl_form">
+        {!! Form::model($shop, ['route' => ['shops.update',$shop->id],'method' => 'put', 'id' => 'form']) !!}
 
-    <div class="row">
-        <div class="col-sm-6 offset-sm-3">
-            {!! Form::model($shop, ['route' => ['shops.update',$shop->id],'method' => 'put', 'id' => 'form']) !!}
-
-                <div class="form-group">
-                    {!! Form::label('name', '名前', ['class' => 'input-label']) !!}
-                    {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! Form::label('number', 'デフォルトの並び順',['class' => 'd-block input-label']) !!}
-                    {!! Form::select('number',App\Category::numbers(),['class' => 'form-control'] ) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! Form::label('gmap_url', 'GoogleMapのURL（任意）', ['class' => 'input-label']) !!}
-                    {!! Form::text('gmap_url', null, ['class' => 'form-control']) !!}
-                </div>
-
-                {!! Form::submit('更新', ['class' => 'orange-btn btn-block send']) !!}
-
-            {!! Form::close() !!}
-
-            {{-- 削除ボタン --}}
-            <div class="text-center">
-                {!! Form::model($shop, ['route' => ['shops.destroy', $shop->id], 'method' => 'delete']) !!}
-                    {!! Form::button('削除する', ['class' => "delete-btn", 'type' => 'submit']) !!}
-                {!! Form::close() !!}
+            <div class="bl_form_group">
+                {!! Form::label('name', '名前', ['class' => 'bl_form_label']) !!}
+                {!! Form::text('name', null, ['class' => 'bl_form_input']) !!}
             </div>
+
+            <div class="bl_form_group">
+                {!! Form::label('number', 'デフォルトの並び順',['class' => 'bl_form_label']) !!}
+                {!! Form::select('number',App\Category::numbers(),['class' => 'bl_form_input'] ) !!}
+            </div>
+
+            <div class="bl_form_group">
+                {!! Form::label('gmap_url', 'GoogleMapのURL（任意）', ['class' => 'bl_form_label']) !!}
+                {!! Form::text('gmap_url', null, ['class' => 'bl_form_input']) !!}
+            </div>
+
+            {!! Form::submit('更新', ['class' => 'el_btn el_btnOrange hp_widthFull is_send']) !!}
+
+        {!! Form::close() !!}
+
+        {{-- 削除ボタン --}}
+        <div class="hp_textCenter">
+            {!! Form::model($shop, ['route' => ['shops.destroy', $shop->id], 'method' => 'delete']) !!}
+                {!! Form::button('削除する', ['class' => "el_btn el_btnDelete", 'type' => 'submit']) !!}
+            {!! Form::close() !!}
         </div>
     </div>
 @endsection
