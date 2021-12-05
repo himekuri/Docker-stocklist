@@ -282,6 +282,11 @@ footer {
           box-shadow: 0 0 0 0.2rem #ffc107;
 }
 
+.el_btnOrange:disabled {
+  background-color: #D8D8D8;
+  opacity: 0.6;
+}
+
 .el_btnOutlineOrange {
   font-weight: 400;
   padding: .6rem 1.2rem;

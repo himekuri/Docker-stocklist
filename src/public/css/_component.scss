@@ -126,6 +126,10 @@
     &:focus {
         box-shadow: 0 0 0 0.2rem #ffc107;
     }
+    &:disabled {
+        background-color: #D8D8D8;
+        opacity: 0.6;
+    }
 }
 
 .el_btnOutlineOrange{
