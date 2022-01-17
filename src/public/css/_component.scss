@@ -61,6 +61,10 @@
             height: calc(3.6rem + 2px)
         }
     }
+    .bl_form_createButtun{
+        justify-content: space-between;
+        display: flex;
+    }
 }
 
 /* テーブル */
@@ -125,6 +129,21 @@
     }
     &:focus {
         box-shadow: 0 0 0 0.2rem #ffc107;
+    }
+    &:disabled {
+        background-color: #D8D8D8;
+        opacity: 0.6;
+    }
+}
+
+.el_btnYellow{
+    background-color: #f3c22e;
+
+    &:hover {
+        background-color: #c59506;
+    }
+    &:focus {
+        box-shadow: 0 0 0 0.2rem #f7d161;
     }
     &:disabled {
         background-color: #D8D8D8;

@@ -212,6 +212,15 @@ footer {
   height: calc(3.6rem + 2px);
 }
 
+.bl_form .bl_form_createButtun {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 /* テーブル */
 .bl_table {
   width: 100%;
@@ -283,6 +292,24 @@ footer {
 }
 
 .el_btnOrange:disabled {
+  background-color: #D8D8D8;
+  opacity: 0.6;
+}
+
+.el_btnYellow {
+  background-color: #f3c22e;
+}
+
+.el_btnYellow:hover {
+  background-color: #c59506;
+}
+
+.el_btnYellow:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem #f7d161;
+          box-shadow: 0 0 0 0.2rem #f7d161;
+}
+
+.el_btnYellow:disabled {
   background-color: #D8D8D8;
   opacity: 0.6;
 }
@@ -423,6 +450,10 @@ footer {
 
 .hp_borderTop {
   border-top: 1px solid #dee2e6;
+}
+
+.hp_widthHalf {
+  width: 48%;
 }
 
 /* 在庫確認・買い出しリスト */

@@ -88,8 +88,13 @@ class ItemsController extends Controller
             'status' => $request->status,
         ]);
 
-        // アイテム一覧へリダイレクトさせる
-        return redirect()->route('items.index');
+        if ($request->has('continue')) {
+            // アイテム作成ビューを表示
+            return redirect()->route('items.create');
+        }else{
+            // アイテム一覧へリダイレクトさせる
+            return redirect()->route('items.index');
+        }
     }
 
     public function edit($id)

@@ -50,8 +50,10 @@
                 {!! Form::radio('status', '2', false) !!}
                 {!! Form::label('status', '買い出し') !!}
             </div>
-
-            {!! Form::submit('登録', ['class' => 'el_btn el_btnOrange hp_widthFull is_send', 'disabled']) !!}
+            <div class="bl_form_createButtun">
+                {!! Form::submit('登録', ['class' => 'el_btn el_btnYellow hp_widthHalf is_send', 'disabled']) !!}
+                {!! Form::submit('続けて登録', ['name' => 'continue', 'class' => 'el_btn el_btnOrange hp_widthHalf is_send', 'disabled']) !!}
+            </div>
 
         {!! Form::close() !!}
     </div>
